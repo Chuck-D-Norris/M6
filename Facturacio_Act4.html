@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="funcioact4.js"></script>
+    <title>Gestor de Factures</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gestor de Factures</h1>
+    <h2>Nova Factura</h2>
+    <form id="invoiceForm">
+        <label for="descripcio">Descripció:</label>
+        <input type="text" id="descripcio" required>
+        <label for="quantitat">Quantitat:</label>
+        <input type="number" id="quantitat" required min="1">
+        <label for="preu">Preu:</label>
+        <input type="number" id="preu" required min="0" step="0.01">
+        <button type="button" onclick="agrega_linia()">Afegir Línia</button>
+    </form>
+
+    <h3>Línies de Factura</h3>
+    <table id="invoiceLines">
+        <thead>
+            <tr>
+                <th>Descripció</th>
+                <th>Quantitat</th>
+                <th>Preu</th>
+                <th>Subtotal</th>
+                <th>Acció</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <h2>Total de la Factura</h2>
+    <p id="total">Total: 0.00 €</p>
+    <label for="discount">Descompte (%):</label>
+    <input type="number" id="discount" value="0" min="0" step="0.01" onchange="Calcul_Total()">
+    <button onclick="Guarda_Factura()">Guardar Factura</button>
+
+    <h2>Factures Guardades</h2>
+    <table id="savedInvoices">
+        <thead>
+            <tr>
+                <th>Total</th>
+                <th>Accions</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+</body>
+</html>
