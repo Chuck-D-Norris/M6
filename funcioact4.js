@@ -19,6 +19,7 @@ function agrega_linia() {
     }
 }
 
+
 function mostralinia() {
     const tbody = document.querySelector('#invoiceLines tbody');
     tbody.innerHTML = '';
